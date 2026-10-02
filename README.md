@@ -26,7 +26,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 18.59 seconds
-```
+``` 
 
 - we have a ssh and http server open with port 80 so lets put the domain in /etc/hosts to see the web site 
 
@@ -298,6 +298,3 @@ HTB{............................}
 
 
 tank you @hachthebox for the machine 
-#   w r i t e u p - s i l e n t i u m - H a c k T h e b o x -  
- #   w r i t e u p - s i l e n t i u m - H a c k T h e b o x -  
- 
