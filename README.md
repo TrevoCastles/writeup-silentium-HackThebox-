@@ -1,6 +1,6 @@
 ## Hack The Box - SmartHire Writeup
 
-![alt text](<.image/Pasted image 20260922001351.png>)
+<img src=".image/Pasted image 20260922001351.png" width="300" alt="SmartHire Machine Logo">
 
 
 
